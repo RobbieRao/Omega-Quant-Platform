@@ -13,7 +13,7 @@ jobs:
   python:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -34,7 +34,7 @@ jobs:
       run:
         working-directory: frontend
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version: "22"
@@ -47,14 +47,14 @@ jobs:
   public-contract:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - run: bash scripts/check_public_tree.sh .
       - run: test -f LICENSE && test -f NOTICE && test -f THIRD_PARTY_NOTICES.md
 
   container:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - run: docker build -t omega-quant-platform:test .
       - run: docker run -d --name omega-demo -p 8770:8770 omega-quant-platform:test
       - run: |
