@@ -10,6 +10,7 @@ dependencies = [
   "pandas>=2.0",
   "numpy>=1.26",
   "pytz==2025.2",
+  "tzlocal>=5.3",
   "fastapi>=0.115",
   "pydantic>=2.7",
   "sqlalchemy>=2.0",
@@ -17,6 +18,7 @@ dependencies = [
   "websockets>=13.0,<16.0",
   "fast-vollib>=0.1.0",
   "plotly>=6.0",
+  "requests>=2.32",
   "deap>=1.4",
   "tqdm>=4.66",
 ]
@@ -48,6 +50,7 @@ live = [
 dev = [
   "httpx>=0.28",
   "pytest>=8.0",
+  "tigeropen>=3.5.8",
 ]
 all = [
   "omega-quant-platform[research,risk,data,web,live,dev]",

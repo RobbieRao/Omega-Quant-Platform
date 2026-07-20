@@ -1439,8 +1439,10 @@ dependencies = [
     { name = "plotly" },
     { name = "pydantic" },
     { name = "pytz" },
+    { name = "requests" },
     { name = "sqlalchemy" },
     { name = "tqdm" },
+    { name = "tzlocal" },
     { name = "uvicorn" },
     { name = "websockets" },
 ]
@@ -1471,6 +1473,7 @@ data = [
 dev = [
     { name = "httpx" },
     { name = "pytest" },
+    { name = "tigeropen" },
 ]
 live = [
     { name = "tigeropen" },
@@ -1510,12 +1513,15 @@ requires-dist = [
     { name = "pyportfolioopt", marker = "extra == 'research'", specifier = ">=1.6.0" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
     { name = "pytz", specifier = "==2025.2" },
+    { name = "requests", specifier = ">=2.32" },
     { name = "riskfolio-lib", marker = "extra == 'risk'", specifier = ">=6.0.0" },
     { name = "scikit-learn", marker = "extra == 'risk'", specifier = ">=1.8.0" },
     { name = "scs", marker = "extra == 'research'", specifier = ">=3.2.11" },
     { name = "sqlalchemy", specifier = ">=2.0" },
+    { name = "tigeropen", marker = "extra == 'dev'", specifier = ">=3.5.8" },
     { name = "tigeropen", marker = "extra == 'live'", specifier = ">=3.5.8" },
     { name = "tqdm", specifier = ">=4.66" },
+    { name = "tzlocal", specifier = ">=5.3" },
     { name = "uvicorn", specifier = ">=0.30" },
     { name = "uvicorn", marker = "extra == 'web'", specifier = ">=0.30" },
     { name = "vectorbt", marker = "extra == 'research'", specifier = ">=1.0.0" },
