@@ -1,0 +1,69 @@
+[project]
+name = "omega-quant-platform"
+version = "0.1.0"
+description = "Open-source event-driven US equities and options quant trading platform."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+dependencies = [
+  "pandas>=2.0",
+  "numpy>=1.26",
+  "pytz==2025.2",
+  "fastapi>=0.115",
+  "pydantic>=2.7",
+  "sqlalchemy>=2.0",
+  "uvicorn>=0.30",
+  "websockets>=13.0,<16.0",
+  "fast-vollib>=0.1.0",
+  "plotly>=6.0",
+  "deap>=1.4",
+  "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+research = [
+  "vectorbt>=1.0.0",
+  "pyportfolioopt>=1.6.0",
+  "cvxpy>=1.9.0",
+  "clarabel>=0.11.1",
+  "osqp>=1.1.1",
+  "scs>=3.2.11",
+]
+risk = [
+  "riskfolio-lib>=6.0.0",
+  "scikit-learn>=1.8.0",
+]
+data = [
+  "yfinance>=0.2.60",
+  "massive>=2.7.0",
+  "duckdb>=1.0.0",
+]
+web = [
+  "uvicorn>=0.30",
+]
+live = [
+  "tigeropen>=3.5.8",
+]
+dev = [
+  "httpx>=0.28",
+  "pytest>=8.0",
+]
+all = [
+  "omega-quant-platform[research,risk,data,web,live,dev]",
+]
+
+[project.scripts]
+omega-quant = "omega_quant.cli:main"
+
+[build-system]
+requires = ["setuptools>=78.1.1"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["omega_quant*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

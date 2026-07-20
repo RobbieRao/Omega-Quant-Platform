@@ -1,0 +1,30 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+!*.env.example
+config/local.secrets.env
+config/omega.local.secrets.env
+data/raw/
+data/private/
+data/omega_quant/
+reports/json/
+reports/html/
+*.log
+frontend/node_modules/
+frontend/dist/
+
+# Build and packaging output
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# Local third-party checkouts and large/generated research artifacts
+references/upstream/
+reports/*.csv
+reports/*.duckdb
+reports/*.png
+reports/tianlongren_cache/

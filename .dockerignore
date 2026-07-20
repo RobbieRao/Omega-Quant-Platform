@@ -1,0 +1,14 @@
+.git
+.venv
+.pytest_cache
+__pycache__
+*.pyc
+frontend/node_modules
+frontend/dist
+config/local.secrets.env
+config/omega.local.secrets.env
+data
+reports
+references/upstream
+notebooks
+tests

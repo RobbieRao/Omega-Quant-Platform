@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: true
+      - run: uv sync --no-editable --extra dev --frozen
+      - run: uv run pytest -q
+      - run: uv run python examples/cta_ma_donchian.py
+      - run: uv run python examples/portfolio_risk.py
+      - run: uv run python examples/option_scenario_matrix.py
+      - run: uv run --with pip-audit pip-audit
+      - run: git diff --check
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - run: npm audit --audit-level=high
+
+  public-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: bash scripts/check_public_tree.sh .
+      - run: test -f LICENSE && test -f NOTICE && test -f THIRD_PARTY_NOTICES.md
+
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: docker build -t omega-quant-platform:test .
+      - run: docker run -d --name omega-demo -p 8770:8770 omega-quant-platform:test
+      - run: |
+          for attempt in $(seq 1 30); do
+            curl --fail --silent http://127.0.0.1:8770/api/health && exit 0
+            sleep 2
+          done
+          docker logs omega-demo
+          exit 1
+      - run: curl --fail --silent http://127.0.0.1:8770/ | grep -q '<div id="root">'

@@ -1,0 +1,14 @@
+services:
+  omega:
+    build: .
+    ports:
+      - "8770:8770"
+    environment:
+      OMEGA_DEMO_MODE: "1"
+      OMEGA_SERVE_UI: "1"
+      OMEGA_DISABLE_LOCAL_SECRETS: "1"
+    volumes:
+      - omega-demo-data:/data
+
+volumes:
+  omega-demo-data:

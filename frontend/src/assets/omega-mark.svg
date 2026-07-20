@@ -1,0 +1,29 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Omega Quant mark">
+  <defs>
+    <linearGradient id="omega-gold" x1="42" y1="28" x2="214" y2="228" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8E3A8"/>
+      <stop offset="0.46" stop-color="#C8922E"/>
+      <stop offset="1" stop-color="#845514"/>
+    </linearGradient>
+    <linearGradient id="omega-ink" x1="34" y1="28" x2="222" y2="230" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#030712"/>
+    </linearGradient>
+    <linearGradient id="omega-line" x1="70" y1="178" x2="186" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14B8A6"/>
+      <stop offset="1" stop-color="#A7F3D0"/>
+    </linearGradient>
+    <filter id="omega-shadow" x="8" y="12" width="240" height="240" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#020617" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <g filter="url(#omega-shadow)">
+    <rect x="28" y="26" width="200" height="204" rx="42" fill="url(#omega-ink)" stroke="url(#omega-gold)" stroke-width="5"/>
+    <path d="M82 82C82 59 101 44 128 44C155 44 174 59 174 82C174 101 162 116 148 125C162 134 174 149 174 168C174 191 155 207 128 207C101 207 82 191 82 168C82 149 94 134 108 125C94 116 82 101 82 82Z" stroke="url(#omega-gold)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M68 170L103 139L134 154L188 96" stroke="url(#omega-line)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M68 170V194H190" stroke="url(#omega-gold)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+    <circle cx="103" cy="139" r="7" fill="#F8FAFC"/>
+    <circle cx="134" cy="154" r="7" fill="#F8FAFC"/>
+    <circle cx="188" cy="96" r="7" fill="#F8FAFC"/>
+  </g>
+</svg>

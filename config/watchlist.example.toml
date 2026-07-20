@@ -1,0 +1,14 @@
+[portfolio]
+base_currency = "USD"
+max_single_position_weight = 0.40
+max_option_weight = 0.20
+max_short_dated_option_days = 21
+
+[watchlist]
+core = ["GLD"]
+high_beta = ["AAOI", "MU"]
+hedges = ["SOXS"]
+
+[notes]
+vault_root = "~/Documents/OmegaQuant"
+investment_folder = "20 领域/财务/投资"

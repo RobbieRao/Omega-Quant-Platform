@@ -1,0 +1,6 @@
+Omega Quant Platform
+Copyright 2026 Omega Quant Platform contributors
+
+This product includes a modified, headless subset of vn.py, Copyright (c)
+2015-present Xiaoyou Chen, licensed under the MIT License. Its license is
+preserved at src/omega_quant/vnpy_core/LICENSE.
